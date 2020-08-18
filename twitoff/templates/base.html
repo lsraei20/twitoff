@@ -27,12 +27,6 @@
         <a href="/user/{{ user.name }}"><span class="stack">{{ user.name }}</span></a>
         {% endfor %}
       </div>
-      <div>
-        <h2>Tweets</h2>
-        {% for tweet in tweets %}
-        <a href="/user/{{ Tweet.text }}"><span class="stack">{{ Tweet.text }}</span></a>
-        {% endfor %}
-      </div>
       {% endblock %}
     </article>
     <!-- Optional stretch - check out some front-end JavaScript! -->

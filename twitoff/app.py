@@ -14,8 +14,7 @@ def create_app():
     @app.route('/')
     def root():
         return render_template('base.html', title='Home',
-                               users=User.query.all(),
-                               tweets=Tweet.query.all())
+                               users=User.query.all())
 
     @app.route('/update')
     def update():
@@ -23,10 +22,8 @@ def create_app():
         DB.drop_all()
         DB.create_all()
         insert_example_users()
-        insert_example_tweets()
         return render_template('base.html', title='Users updated!',
-                               users=User.query.all(), tweets=Tweet.query.all())
-
+                               users=User.query.all())
 
     @app.route('/reset')
     def reset():
