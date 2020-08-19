@@ -19,15 +19,14 @@ def create_app():
 
     @app.route('/update')
     def update():
-        # Reset the database
-        DB.drop_all()
-        DB.create_all()
+        # update database
         insert_example_users()
         return render_template('base.html', title='Users updated!',
                                users=User.query.all())
 
     @app.route('/reset')
     def reset():
+        # reset database
         DB.drop_all()
         DB.create_all()
         return render_template('base.html', title='Reset Database!')
