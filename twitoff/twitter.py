@@ -46,4 +46,3 @@ def insert_example_users():
     """Example data to play with."""
     add_or_update_user('elonmusk')
     add_or_update_user('nasa')
-
