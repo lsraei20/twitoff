@@ -1,1 +1,1 @@
-Procfilheroku git:remote -a twitoff-israele - web: gunicorn twitoff:APP -t 120
+Procfile - web: gunicorn twitoff:APP -t 120
