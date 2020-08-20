@@ -4,7 +4,6 @@ import tweepy
 import basilica
 from .models import DB, User, Tweet
 
-
 TWITTER_USERS = ['calebhicks', 'elonmusk', 'rrherr', 'SteveMartinToGo',
                  'alyankovic', 'nasa', 'sadserver', 'jkhowland', 'austen',
                  'common_squirrel', 'KenJennings', 'conanobrien',
@@ -25,9 +24,18 @@ def add_or_update_user(username):
                    User(id=twitter_user.id, name=username))
         DB.session.add(db_user)
         # get tweets (focusing on primary not retweet or reply)
+
         tweets = twitter_user.timeline(count=200, exclude_replies=True,
                                        include_rts=False, tweet_mode='Extended',
-                                       since_id=db_user.newest_tweet_id)
+                                       since_id=db_user.newest_tweet_id, page=1)
+        # page = 1
+        # while len(tweets) < 200:
+        #     page += 1
+        #     temp = twitter_user.timeline(count=200, exclude_replies=True,
+        #                                  include_rts=False, tweet_mode='Extended',
+        #                                  since_id=db_user.newest_tweet_id, page=page)
+        #     tweets = tweets + temp
+
         if tweets:
             db_user.newest_tweet_id = tweets[0].id
         for tweet in tweets:
@@ -45,4 +53,4 @@ def add_or_update_user(username):
 def insert_example_users():
     """Example data to play with."""
     add_or_update_user('elonmusk')
-    add_or_update_user('nasa')
+    add_or_update_user('realDonaldTrump')

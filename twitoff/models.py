@@ -27,20 +27,4 @@ class Tweet(DB.Model):
         return '-Tweet {}-'.format(self.text)
 
 
-def insert_example_tweets():
-    """Example tweets data to play with."""
-    elontweet = Tweet(id=1, text='When space travel becomes as common as air travel, '
-                                 'the future of civilization will be assured',
-                      user_id=2, user='elon')
-    trumptweet = Tweet(id=2, text='WITCH HUNT!', user_id=4, user='trump')
-    austentweet = Tweet(id=3, text='If you’re a university actually concerned about '
-                                   'equality step one should be getting rid of legacy'
-                                   ' admissions', user_id=1, user='austen')
-    roberttweet = Tweet(id=2, text="Happy birthday to America's ass. The world's a "
-                                   "better place, and I owe you a kiss on the cheek! "
-                                   "@ChrisEvans", user_id=3, user='robert')
-    DB.session.add(austentweet)
-    DB.session.add(elontweet)
-    DB.session.add(roberttweet)
-    DB.session.add(trumptweet)
-    DB.session.commit()
+
