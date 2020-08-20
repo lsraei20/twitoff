@@ -5,6 +5,7 @@ from .predict import predict_user
 from .twitter import insert_example_users, add_or_update_user
 from os import getenv
 
+
 def create_app():
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__)
